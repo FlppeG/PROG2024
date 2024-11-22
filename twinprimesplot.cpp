@@ -3,18 +3,17 @@
 #include <string>
 
 bool isPrime(long n);
-void nth_twin_primes(long n); 
+int nth_twin_primesdata(long n); 
 
-int main(int argc, char **argv) {
-    
-    int n = std::stol(argv[1]);
-    
-    if (n <= 0) {
-        std::cerr << "Por favor, ingrese un número entero positivo mayor que 0.\n";
-    } else {
-        nth_twin_primes(n);
+int main() {
+   
+    for (int ii = 1; ii <= 100; ++ii) {
+        int prime1 = nth_twin_primesdata(ii);
+        int prime2 = prime1 + 2;
+        std::cout << ii << "," << sqrt(( prime1 * prime1 ) + ( (prime2) * (prime2) )) << "\n";
+     
     }
-
+    
     return 0;
 }
 
@@ -25,14 +24,13 @@ bool isPrime(long n) {
     return true;
 }
 
-void nth_twin_primes(long n) {
+int nth_twin_primesdata(long n) {
     long counter = 0;
     for(int ii = 2; ; ++ii) {
         if (isPrime(ii) and isPrime(ii+2)) {
             counter++;
             if (counter == n) {
-                std::cout << "(" << ii << ", " << ii+2 << ")\n";
-                break;
+                return ii;
             }
         }
     }
