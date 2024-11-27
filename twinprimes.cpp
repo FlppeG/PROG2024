@@ -4,7 +4,7 @@
 
 bool isPrime(long n);
 void nth_twin_primes(long n); 
-
+/*
 int main(int argc, char **argv) {
     
     int n = std::stol(argv[1]);
@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
 
     return 0;
 }
-
+*/
 bool isPrime(long n) {
     for (long ii = 2; ii*ii <= n; ++ii)
         if (n%ii == 0) return false;
